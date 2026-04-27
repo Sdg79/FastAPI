@@ -6,4 +6,4 @@ pymongo
 python-dotenv
 uvicorn
 PyJWT>=2.12.1
-pwdlib
+pwdlib[argon2]
