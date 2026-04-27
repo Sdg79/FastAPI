@@ -3,7 +3,8 @@
 # MÃ³dulo conexión MongoDB: pip install pymongo
 # Ejecución: sudo mongod --dbpath "/path/a/la/base/de/datos/"
 # Conexión: mongodb://localhost
-
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 
 # Descomentar el db_client local o remoto correspondiente
@@ -14,5 +15,14 @@ from pymongo import MongoClient
 
 
 # Base de datos remota MongoDB Atlas (https://mongodb.com)
-db_client = MongoClient(
-    "mongodb+srv://sergio:sdg81164@cluster0.eyvfcs3.mongodb.net/?appName=Cluster0").test
+
+load_dotenv()
+
+user     = os.getenv("MONGO_USER")
+password = os.getenv("MONGO_PASSWORD")
+host     = os.getenv("MONGO_HOST")
+db_name  = os.getenv("MONGO_DB")
+
+uri = f"mongodb+srv://{user}:{password}@{host}"
+
+db_client = MongoClient(uri).test
