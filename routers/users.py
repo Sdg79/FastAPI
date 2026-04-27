@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 router = APIRouter(
     prefix="/user",
-    tags=["users"],
+    tags=["user"],
     responses={404: {"message": "No encontrado"}}
     )
 
