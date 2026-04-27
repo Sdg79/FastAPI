@@ -3,3 +3,7 @@ python-jose
 passlib
 bcrypt
 pymongo
+python-dotenv
+uvicorn
+jwt
+pwdlib
